@@ -12,9 +12,9 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import java.util.ArrayList;
 
 public class TinderBoltApp extends MultiSessionTelegramBot {
-    public static final String TELEGRAM_BOT_NAME = "bot-name"; //TODO: добавь имя бота в кавычках
-    public static final String TELEGRAM_BOT_TOKEN = "bot-token"; //TODO: добавь токен бота в кавычках
-    public static final String OPEN_AI_TOKEN = "chat-gpt-token"; //TODO: добавь токен ChatGPT в кавычках
+    public static final String TELEGRAM_BOT_NAME = "kirs2000_tinder_bot";
+    public static final String TELEGRAM_BOT_TOKEN = "7204066660:AAGsWhDwh30vClz7EciCVIg1kJlbOWz0LS0";
+    public static final String OPEN_AI_TOKEN = "chat-gpt-token";
 
     public TinderBoltApp() {
         super(TELEGRAM_BOT_NAME, TELEGRAM_BOT_TOKEN);
@@ -22,7 +22,17 @@ public class TinderBoltApp extends MultiSessionTelegramBot {
 
     @Override
     public void onUpdateEventReceived(Update update) {
-        //TODO: основной функционал бота будем писать здесь
+        String message = getMessageText();
+        if (message.equals("/start")) {
+            sendPhotoMessage("main");
+            sendTextMessage(loadMessage("main"));
+            return;
+        }
+        sendTextMessage("*Hello!*");
+        String message2 = getMessageText();
+        sendTextButtonsMessage("_You wrote:_ " + message2);
+        sendTextButtonsMessage("Choose button: ", "Start", "start", "Stop", "stop");
+
 
     }
 
