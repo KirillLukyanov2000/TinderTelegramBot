@@ -30,7 +30,7 @@ public class ChatGPTService {
     /**
      * Одиночный запрос к ChatGPT по формату "запрос"-> "ответ".
      * Запрос состоит из двух частей:
-     *      prompt - контектс вопроса
+     *      prompt - контекст вопроса
      *      question - сам запрос
      */
     public String sendMessage(String prompt, String question) {
@@ -43,7 +43,7 @@ public class ChatGPTService {
 
     /**
      * Запросы к ChatGPT с сохранением истории сообщений.
-     * Метод setPrompt() задает контект запроса
+     * Метод setPrompt() задает контекст запроса
      */
     public void setPrompt(String prompt) {
         Message system = Message.ofSystem(prompt);
