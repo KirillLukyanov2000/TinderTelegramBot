@@ -1,10 +1,5 @@
 
-i	java:S131{""Add a default case to this switch.(Î’’Îüÿÿÿÿ8µîÓÁü1J$83382fb5-37b8-42c4-8511-2a0a3a1856bc
-–
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(™¯¤e8‚ÖÁü1J$a282c3a3-5805-4e20-9e75-199946c51300
-œ
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(¬Á¦òùÿÿÿÿ8‚ÖÁü1J$04ebca93-3112-495a-832b-609db4d0a0b8
-—
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ºïš8‚ÖÁü1J$a1b081b9-7883-4d3f-893b-b79829247502
-œ
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(×¶ÏÀüÿÿÿÿ8‚ÖÁü1J$cfe18fa4-6095-4791-b9e3-9488fb4a85e1
+š
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(×Ê§÷øÿÿÿÿ8¾Ë»Âü1J$9c4a93c1-3483-4c07-8e56-8e58406d4d31
+i	java:S131x""Add a default case to this switch.(Î’’Îüÿÿÿÿ8ÇË»Âü1J$5af8cfc0-e1dc-4b99-b228-e09448d7e4de
+j	java:S131¢""Add a default case to this switch.(Î’’Îüÿÿÿÿ8ÉË»Âü1J$fde5b569-d6e6-4f34-8669-e83a7b8ff592
