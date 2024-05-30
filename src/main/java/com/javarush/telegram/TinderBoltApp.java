@@ -19,6 +19,8 @@ public class TinderBoltApp extends MultiSessionTelegramBot {
     private ChatGPTService chatGPT = new ChatGPTService(OPEN_AI_TOKEN);
     private DialogMode currentMode = null;
     private ArrayList<String> messageList = new ArrayList<>();
+    private UserInfo userInfo;
+    private int questionCount;
 
     public TinderBoltApp() {
         super(TELEGRAM_BOT_NAME, TELEGRAM_BOT_TOKEN);
@@ -106,9 +108,49 @@ public class TinderBoltApp extends MultiSessionTelegramBot {
             }
             messageList.add(message);
             return;
-
         }
 
+        //PROFILE MODE
+        if (message.equals("/profile")) {
+            currentMode = DialogMode.PROFILE;
+            sendPhotoMessage("profile");
+            userInfo = new UserInfo();
+            questionCount = 1;
+            sendTextMessage("How old are you?");
+            return;
+        }
+        if (currentMode == DialogMode.PROFILE) {
+            switch (questionCount) {
+                case 1:
+                    userInfo.age = message;
+                    questionCount = 2;
+                    sendTextMessage("What is your occupation?");
+                    return;
+                case 2:
+                    userInfo.occupation = message;
+                    questionCount = 3;
+                    sendTextMessage("What is your hobby?");
+                    return;
+                case 3:
+                    userInfo.hobby = message;
+                    questionCount = 4;
+                    sendTextMessage("What you dislike in people?");
+                    return;
+                case 4:
+                    userInfo.annoys = message;
+                    questionCount = 5;
+                    sendTextMessage("What is your purpose of dating?");
+                    return;
+                case 5:
+                    userInfo.goals = message;
+                    questionCount = 6;
+                    String aboutMyself = userInfo.toString();
+                    Message serviceMessage = sendTextMessage("Let's think how ChatGPT can help you...");
+                    String answer = chatGPT.sendMessage(loadPrompt("profile"), aboutMyself);
+                    updateTextMessage(serviceMessage, answer);
+
+            }
+        }
     }
 
     public static void main(String[] args) throws TelegramApiException {
